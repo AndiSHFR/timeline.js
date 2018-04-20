@@ -133,6 +133,7 @@ When creating the timeline object you can set various options. Here is a list of
 | dataBulletRadius     | number     | 4           | Radius for the data items bullet. |
 | dataOffset           | number     | 5           | Space between start of the data items line and the label. |
 | dataFontSize         | string     | 16pt        | Size of the data items label. |
+| dataLineHeight       | number     | null        | Height of a data row in pixels. null = auto height, depending on the choosen ``dataaFontSize``. |
 | mapDataItem          | function   | _[default]_ | Callback function to map data items to internal objects. Sometimes it is handy not to prepare an extra array of data for the timeline object. It may be easier to convert the already available data on the fly. Set this callback to a user defined function to map any array items you set using the ``setData()`` function to the required object for ```timeline.js```.  |
 
 
