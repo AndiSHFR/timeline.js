@@ -136,6 +136,49 @@ When creating the timeline object you can set various options. Here is a list of
 | dataLineHeight       | number     | null        | Height of a data row in pixels. null = auto height, depending on the chosen ``dataFontSize``. |
 | mapDataItem          | function   | _[default]_ | Callback function to map data items to internal objects. Sometimes it is handy not to prepare an extra array of data for the timeline object. It may be easier to convert the already available data on the fly. Set this callback to a user defined function to map any array items you set using the ``setData()`` function to the required object for ```timeline.js```.  |
 
+# Timeline methods
+After creating the timeline object you can use public methods to control the behaviour of the object.
+
+## refresh()
+Use the  `refresh()` method to render the objects content.
+
+```javascript
+timeline.refresh();
+```
+__Note__: ```timeline.js``` itself does not care for resizing. So if you want to fit the content after the browser window has been resized you need to hook to the event on your own and call the `refresh()` method.
+
+## setData()
+Use the `setData()`method to set the data items the ```timeline``` object will show.
+
+```javascript
+timeline.setData([
+  { label: 'P1', start: '2018-04-16 22:34:00', end: '2018-04-17 02:48:37' },
+  { label: 'P2', start: '2018-04-17 06:06:43', end: null },
+  { label: 'P3', start: '2018-04-17 14:00:43', end: '2018-04-17 15:00:00' },
+  { label: 'P4', start: '2018-04-17 11:56:02', end: '2018-04-17 19:34:41' }
+]);
+```
+
+__Note__: If your data items have different properties than the ones required by ```timeline.js``` (`label`, `start`, `end`) you can use the `mapDataItem`-option to convert your item objects into timeline data objects - on the fly.
+
+
+## setPeriod()
+Use the `setPeriod()`method to set the range of time ```timeline.js``` will show.
+
+```javascript
+timeline.setPeriod('2018-04-16 00:0:00', '2018-04-17 00:00:00');
+```
+
+# Data item object properties
+When you set data using the `setData()` method your items need to have the required properties below:
+
+| Property             | Datatype      |  Example               | Description           |
+| -------------------- | :-----------: |  --------------------- | --------------------- |
+| label                | string        |  'A1'                  | The label of the data duration. |
+| start                | string \| Date |  '1971-11-04 14:00:00' | The start datetime of the duration. |
+| end                  | string \| Date |  '1971-11-04 16:00:00' | The end datetime of the duration. If set to `null` then the duration is 'still running' and the finishing-bullet will not be drawn. |
+| _color_              | string        |  '#ffaa80'             | Optional. The color of the label, line and bullets. |
+
 
 # License
 ```timeline.js``` is published under [MIT](LICENSE) license.
