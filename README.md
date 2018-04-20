@@ -64,7 +64,7 @@ timeline.setData([
 
 
 ## Full working example
-Here is a minimal full working example.
+Here is a minimal, full working example.
 
 ```html
 <html>
