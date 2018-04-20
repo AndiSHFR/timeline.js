@@ -31,7 +31,7 @@ Include the JavaScript file on your web page. In the example below the file resi
 Add a container element to your web page. The module will output the svg graphics into this container. ```timeline.js``` will fill the full width of the container. The height will be automatically set by the amount of data items.
 
 ```javascript  
-    <div id="timelineContainer"></div>
+    <div id="container"></div>
 ```
 
 __Hint:__ If you use a DIV element as the container it will fill the whole width of the parent. Otherwise you may have to set the desired width and height of the container manually.
