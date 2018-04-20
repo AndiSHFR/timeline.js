@@ -169,6 +169,8 @@ Use the `setPeriod()`method to set the range of time ```timeline.js``` will show
 timeline.setPeriod('2018-04-16 00:0:00', '2018-04-17 00:00:00');
 ```
 
+_Note_: For an example how to use this please see the [live-update.html](examples/live-update.html) example.
+
 # Data item object properties
 When you set data using the `setData()` method your items need to have the required properties below:
 
