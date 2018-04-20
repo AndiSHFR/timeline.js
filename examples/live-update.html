@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Live Update Timeline Example</title>
+    <script src="../lib/timeline.js"></script>    
+  </head>
+  <body>
+    <h1>Live Update Timeline Example</h1>
+
+    <div id="container"></div>
+
+    <script>
+
+      function addSeconds(d, s) {
+        return new Date(d).setSeconds(d.getSeconds() + s);
+      }
+
+      var displayMinutes = 3;
+      var endDateTime = new Date();
+      var startDateTime = addSeconds(endDateTime, - 60 * displayMinutes);
+      
+      // Initialize the timeline instance
+      var tl1 = Timeline(
+        document.getElementById('container'), 
+        {
+          scaleFormat: 'hh:mm:ss',
+          startDateTime: startDateTime,
+          endDateTime: endDateTime,
+        }
+      );
+
+      tl1.setData([
+        { label: 'P1', start: addSeconds(endDateTime, 0),    end: addSeconds(endDateTime, 30) },
+        { label: 'P2', start: addSeconds(endDateTime, 15),   end: null },
+        { label: 'P3', start: addSeconds(endDateTime, -90),  end: addSeconds(endDateTime, -45) },
+        { label: 'P4', start: addSeconds(endDateTime, -320), end: addSeconds(endDateTime, -125) }
+      ]);
+
+      setInterval(function() {
+          var now = new Date();
+          tl1.setPeriod(addSeconds(now, - 60 * displayMinutes), now);
+        }, 
+        1000
+      );
+
+    </script>
+  </body>
+</html>
